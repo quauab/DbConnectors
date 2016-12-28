@@ -41,11 +41,12 @@ public class MongoConnector {
 		MongoClientURI uri = new MongoClientURI(url, MongoClientOptions.builder().cursorFinalizerEnabled(false));
 		
 		MongoClient client = new MongoClient(uri);
-		return client.getConnectPoint() + ":" + client.getAddress();
+//		System.out.println("Connection Point: " + client.getConnectPoint());
+		return client.getConnectPoint();
 	}
 	
-	boolean closeConnection() {
-		mongoClient.close();
+	public boolean closeConnection() {
+//		mongoClient.close();
 		mongoClient = null;
 		return true;
 	}
