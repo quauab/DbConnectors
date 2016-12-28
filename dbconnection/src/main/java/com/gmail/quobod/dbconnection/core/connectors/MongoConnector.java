@@ -48,6 +48,11 @@ public class MongoConnector {
 	public boolean closeConnection() {
 //		mongoClient.close();
 		mongoClient = null;
+		host = null;
+		port = null;
+		user = null;
+		password = null;
+		databaseName = null;
 		return true;
 	}
 }
