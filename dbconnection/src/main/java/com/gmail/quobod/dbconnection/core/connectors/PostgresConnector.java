@@ -13,6 +13,11 @@ public class PostgresConnector {
 	private String user;
 	public static Connection connection;
 	
+	/**Constructor
+	 * @param hst String the database's location
+	 * @param db String database name
+	 * @param usr String database user
+	 * @param pwd String user's password*/
 	public PostgresConnector(String hst, String db, String usr, String pwd) {
 		if (null == hst || null == db || null == usr || null == pwd) {
 			throw new NullPointerException("Expected non-null host url, database name, user and password\nCheck parameters");
@@ -28,6 +33,8 @@ public class PostgresConnector {
 		this.password = pwd;
 	}
 
+	/**Connects to the database
+	 * @return true if connection is successful*/
 	public boolean connected() {
 		try {
 			// the postgresql driver string
@@ -54,6 +61,8 @@ public class PostgresConnector {
 		}
 	}
 	
+	/**Closes the connection
+	 * @return true if disconnection is successful*/
 	public boolean closeConnection() {
 		try {
 			if (null != connection)

@@ -12,6 +12,10 @@ public class MySqlConnector {
 	private String password;
 	public static Connection connection;
 	
+	/**Constructor
+	 * @param db String database name
+	 * @param usr String database user
+	 * @param pwd String user's password*/
 	public MySqlConnector(String db, String usr, String pwd) {
 		if (null == db || null == usr || null == pwd) {
 			throw new NullPointerException("Expected non-null database name, user and password\nCheck parameters");
@@ -26,6 +30,8 @@ public class MySqlConnector {
 		this.password = pwd;
 	}
 
+	/**Connects to the database
+	 * @return true if connection is successful*/
 	public boolean connected() {
 		String jdbcUrl = "jdbc:mysql://localhost:3306/" + dbName + "?useSSL=false";
 		try {
@@ -41,6 +47,8 @@ public class MySqlConnector {
 		}
 	}
 	
+	/**Closes the connection
+	 * @return true if disconnection is successful*/
 	public boolean closeConnection() {		
 		try {
 			if (null != connection)

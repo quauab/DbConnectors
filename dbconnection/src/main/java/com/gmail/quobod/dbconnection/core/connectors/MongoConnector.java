@@ -14,6 +14,12 @@ public class MongoConnector {
 	private String password;
 	private String databaseName;
 	
+	/**Constructor
+	 * @param hst String database's location
+	 * @param prt String the location's port
+	 * @param db String the database's name
+	 * @param usr String database user
+	 * @param pwd String the user's password*/
 	public MongoConnector(String hst, String prt, String db, String usr, String pwd) {
 		if (null == hst || null == prt || null == db || null == usr || null == pwd) {
 			throw new NullPointerException(
@@ -32,6 +38,8 @@ public class MongoConnector {
 		this.password = pwd;
 	}
 
+	/**Connects to the database
+	 * @return String the connection point if successful*/
 	public String connected() {
 //		mongodb://<dbuser>:<dbpassword>@ds049466.mlab.com:49466/mytasks
 //		tester:tester@ds049466.mlab.com:"
@@ -45,6 +53,8 @@ public class MongoConnector {
 		return client.getConnectPoint();
 	}
 	
+	/**Closes the connection
+	 * @return true after nulling all of the class' variables*/
 	public boolean closeConnection() {
 //		mongoClient.close();
 		mongoClient = null;
