@@ -67,13 +67,7 @@ public class MongoConnector {
 		} catch (Exception exc) {
 			exc.printStackTrace();
 			return null;
-		} finally {
-			try {
-				mongoClient.close();
-			} catch (Exception exc) {
-				exc.printStackTrace();
-			}
-		}
+		} 
 	}
 
 	/**
