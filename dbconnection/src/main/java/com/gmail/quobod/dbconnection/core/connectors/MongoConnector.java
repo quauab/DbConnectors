@@ -7,7 +7,7 @@ import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoClientURI;
 
 public class MongoConnector {
-	public static MongoClient mongoClient = null;
+	public MongoClient mongoClient = null;
 	private String host;
 	private String port;
 	private String user;
@@ -82,7 +82,7 @@ public class MongoConnector {
 	 * @return true after nulling all of the class' variables
 	 */
 	public boolean closeConnection() {
-		// mongoClient.close();
+		mongoClient.close();
 		mongoClient = null;
 		host = null;
 		port = null;
