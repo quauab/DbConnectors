@@ -55,8 +55,11 @@ public class MongoConnector {
 		try {
 			// mongodb://<dbuser>:<dbpassword>@ds049466.mlab.com:49466/mytasks
 			// tester:tester@ds049466.mlab.com:"
+//			MongoClientURI uri = new MongoClientURI("mongodb://user1:pwd1@host1/?authSource=db1");
 
-			String url = "mongodb://" + user + ":" + password + "@" + host + ":" + port + "/" + databaseName;
+//			String url = "mongodb://" + user + ":" + password + "@" + host + ":" + port + "/" + databaseName;
+			
+			String url = "mongodb://" + user + ":" + password + "@" + host + ":" + port + "/?authSource=" + databaseName;
 
 			MongoClientURI uri = new MongoClientURI(url, MongoClientOptions.builder().cursorFinalizerEnabled(false));
 
